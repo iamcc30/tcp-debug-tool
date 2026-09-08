@@ -1,110 +1,71 @@
-# TCP-Debug 功能简介
+<p align="center">
+  <img src="https://tcp.onemoretry.cc/images/logo/app-icon-1.3.png" alt="TCP调试助手" width="120">
+</p>
 
-<div align="center">
+<h1 align="center">TCP调试助手 · TCP-Debug</h1>
 
-![TCP-Debug Logo](images/logo/tcp_debug_logo_256.png)
+<p align="center">TCP 客户端与服务端调试工具，让连接、收发和报文分析更清晰。</p>
 
-**TCP-Debug - 专业的TCP连接测试与调试工具**
+<p align="center">
+  <a href="https://tcp.onemoretry.cc/">官方网站</a> ·
+  <a href="https://github.com/iamcc30/tcp-debug-tool/releases/tag/v1.3.0">1.3.0 发布说明</a> ·
+  <a href="https://apps.apple.com/cn/app/tcp%E8%B0%83%E8%AF%95%E5%8A%A9%E6%89%8B/id6808118556?mt=12">Mac App Store</a>
+</p>
 
-</div>
+## 下载
 
-## 软件概述
+当前版本：**1.3.0**。
 
-TCP-Debug 是一款专业的TCP连接测试与调试工具，提供直观的图形界面，帮助开发者快速建立TCP连接、发送接收数据、分析网络通信。
+| 平台 | 下载 | 说明 |
+| --- | --- | --- |
+| macOS · Intel / Apple Silicon | [Mac App Store](https://apps.apple.com/cn/app/tcp%E8%B0%83%E8%AF%95%E5%8A%A9%E6%89%8B/id6808118556?mt=12) | 一次购买，无订阅；由商店安装与更新，价格以当地页面为准 |
+| Windows x64 | [下载 EXE](https://github.com/iamcc30/tcp-debug-tool/releases/download/v1.3.0/TCP-Debug-Windows-amd64.exe) | 免费下载，当前发行版未进行代码签名 |
+| Linux x64 | [下载可执行文件](https://github.com/iamcc30/tcp-debug-tool/releases/download/v1.3.0/TCP-Debug-Linux-amd64) | 基于 Debian 12 构建，需要兼容的图形桌面运行库 |
+| Linux ARM64 | [下载可执行文件](https://github.com/iamcc30/tcp-debug-tool/releases/download/v1.3.0/TCP-Debug-Linux-arm64) | 同上，适用于 ARM64 系统 |
 
----
+Linux 下载后添加执行权限，例如 `chmod +x TCP-Debug-Linux-amd64`，并安装所需的 OpenGL / X11 运行库。可使用 [SHA256SUMS.txt](https://github.com/iamcc30/tcp-debug-tool/releases/download/v1.3.0/SHA256SUMS.txt) 核验下载完整性。
+
+本次公开发行提供 Windows 与 Linux 制品；Mac 请通过 App Store 获取。
 
 ## 主要功能
 
-### 🔌 TCP连接管理
-- 多连接同时管理，每个连接独立窗口
-- 连接配置自动保存，快速重连
-- 实时连接状态监控
-- 连接统计信息显示（IP、端口、发送/接收字节数、数据包数）
+- **客户端与服务端**：主动建立 TCP 连接，或监听本地端口接收多个客户端；各会话独立管理、收发和断开。
+- **多种数据格式**：支持 HEX、ASCII、Binary、JSON，提供长度前缀、分隔符和固定长度分帧。
+- **报文分析**：在报文列表与会话流之间切换，查看收发方向、连接状态和字节统计，复制或查看完整报文。
+- **重复测试与导出**：复用发送历史、定时发送，将报文导出为 CSV、JSON 或 TXT。
+- **中英文即时切换**：保存语言设置后立即生效，无需重启，不中断活动连接。
+- **阅读与显示设置**：深色/浅色主题、自动换行、等宽字体和纯数据视图。
 
-### 📤 数据收发
-- **多格式支持**: HEX、ASCII、二进制、JSON
-- **实时发送**: 快速发送数据包
-- **发送历史**: 自动保存，支持重复发送
-- **定时发送**: 支持定时自动发送功能
+1.3.0 新增 TCP 服务端和中英文即时切换，并修复公开构建的版本注入，避免二进制显示旧版本及同版本更新误报。
 
-### 📥 数据接收与显示
-- **双显示模式**:
-  - **列表模式**: 显示时间戳、数据大小等详细信息
-  - **追加模式**: 连续追加显示，支持文本选择和复制
-- **消息详情**: 点击查看完整内容（ASCII/HEX格式）
-- **一键复制**: 快速复制消息内容
+## 界面预览
 
-### 🔧 粘包处理
-- **长度前缀**: 数据包前N字节表示长度（1-8字节）
-- **分隔符**: 使用指定分隔符拆分（支持常用分隔符快捷按钮）
-- **固定长度**: 按固定字节数切分数据包
+以下为 macOS 真实界面的展示图。官网提供更多截图与放大预览。
 
-### ⚙️ 高级配置
-- **连接超时**: 自定义超时时间（1-60秒）
-- **自动重连**: 连接断开后自动重连
-- **数据格式**: 发送和接收格式独立配置
-- **性能优化**: 可调整UI刷新间隔、显示消息数、存储限制
+![客户端与服务端连接管理](https://tcp.onemoretry.cc/images/01-overview-1.3.png)
 
-### 🎨 界面定制
-- **主题切换**: 深色/浅色主题，立即生效
-
-<div align="center">
-
-![浅色主题](images/light.png)
-
-*浅色主题界面*
-
-![深色主题](images/dark.png)
-
-*深色主题界面*
-
-</div>
-
-- **显示选项**: 自动换行、等宽字体、行号显示
-- **性能监控**: 实时显示UI负载和内存使用
-
-### 💾 数据管理
-- **分层存储**: 热数据（内存）+ 冷数据（SQLite）
-- **数据导出**: 支持导出消息记录
-- **自动清理**: 智能管理存储空间
-
----
-
-## 使用场景
-
-- ✅ 网络协议开发与调试
-- ✅ IoT设备通信测试
-- ✅ 服务器端口检测
-- ✅ 网络安全测试
-- ✅ 硬件通信协议验证
-- ✅ API和服务接口测试
-- ✅ 网络教学与学习
-
----
-
-## 平台支持
-
-<div align="center">
-
-![平台支持](images/logo/Icon.png)
-
-</div>
-
-- **Windows**: x86、x64、ARM64
-- **macOS**: Intel、Apple Silicon (M1/M2/M3)
-- **Linux**: x86、x64、ARM64
-
----
+![中英文界面与深浅主题](https://tcp.onemoretry.cc/images/04-language-1.3.png)
 
 ## 快速开始
 
-1. **创建连接**: 输入IP和端口，点击连接
-2. **发送数据**: 在输入框输入数据，选择格式，点击发送
-3. **查看接收**: 接收数据自动显示，支持列表和追加两种模式
-4. **管理配置**: 在主窗口管理所有连接配置
+1. 下载适合当前系统的版本并启动应用。
+2. 创建 TCP 客户端连接，或配置服务端监听本地端口。
+3. 打开会话，选择发送与接收格式，开始收发和查看报文。
+4. 按需启用定时发送、切换语言，或导出报文继续分析。
 
----
+## 源码与开发文档
 
-**版本**: 1.2.0 | **官网**: https://tcp.onemoretry.cc
+**本 GitHub 仓库用于托管发行文件与使用说明，源码以 Gitee 为准。**
 
+GitHub Release 自动生成的 Source code 归档不对应 1.3.0 发行源码。请从 Gitee 获取源码及 `v1.3.0` 标签：
+
+- [Gitee 源码仓库与开发指南](https://gitee.com/785445636/tcp-assistant)
+- [完整功能说明](https://gitee.com/785445636/tcp-assistant/blob/master/FEATURES_CN.md)
+- [构建与版本注入说明](https://gitee.com/785445636/tcp-assistant/blob/master/QUICK_BUILD.md)
+- [Mac App Store 构建说明](https://gitee.com/785445636/tcp-assistant/blob/master/packaging/macos-app-store/README.md)
+
+## 支持
+
+- [官方网站](https://tcp.onemoretry.cc/)
+- [隐私政策](https://tcp.onemoretry.cc/privacy.html)
+- 联系开发者：[techforcc@gmail.com](mailto:techforcc@gmail.com)
