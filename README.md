@@ -53,16 +53,16 @@ Linux 下载后添加执行权限，例如 `chmod +x TCP-Debug-Linux-amd64`，�
 3. 打开会话，选择发送与接收格式，开始收发和查看报文。
 4. 按需启用定时发送、切换语言，或导出报文继续分析。
 
-## 源码与开发文档
+## 使用手册
 
-**本 GitHub 仓库用于托管发行文件与使用说明，源码以 Gitee 为准。**
+[阅读完整使用手册](USER_GUIDE.md)，从一次本机收发开始，逐步了解：
 
-GitHub Release 自动生成的 Source code 归档不对应 1.3.0 发行源码。请从 Gitee 获取源码及 `v1.3.0` 标签：
+- TCP 客户端连接与服务端多客户端管理。
+- 四种数据格式、接收分帧和定时发送。
+- 报文列表、会话流、历史分页与导出。
+- 语言切换、平台更新方式和常见问题排查。
 
-- [Gitee 源码仓库与开发指南](https://gitee.com/785445636/tcp-assistant)
-- [完整功能说明](https://gitee.com/785445636/tcp-assistant/blob/master/FEATURES_CN.md)
-- [构建与版本注入说明](https://gitee.com/785445636/tcp-assistant/blob/master/QUICK_BUILD.md)
-- [Mac App Store 构建说明](https://gitee.com/785445636/tcp-assistant/blob/master/packaging/macos-app-store/README.md)
+本仓库提供发行文件与使用文档。安装应用请使用上方下载入口，Release 自动生成的 Source code 归档不是安装包。
 
 ## 支持
 
